@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra</title>
+    <!--Estilos-->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-light fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-brand mx-auto">
+                <img src="recursos/logo.png" alt="Logo de la Compañía" class="logo">
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div class="container mt-5">
+        <h2>Formulario de Compra</h2>
+        <hr>
+
+        <!-- Servicios -->
+        <h4>Selecciona Servicios</h4>
+        <div class="entrada-item">
+            <img src="recursos/pintacarita.jpeg" alt="Pinta Caritas" class="img-thumbnail">
+            <span>Pinta Caritas</span>
+            <span class="precio">$10,000</span>
+            <input type="number" class="form-control" min="0" id="pintaCaritas" value="0">
+        </div>
+        <div class="entrada-item">
+            <img src="recursos/carrito.jpeg" alt="Carritos Dinosaurios" class="img-thumbnail">
+            <span>Carritos Dinosaurios (40 min)</span>
+            <span class="precio">$15,000</span>
+            <input type="number" class="form-control" min="0" id="carritosDino" value="0">
+        </div>
+        <div class="entrada-item">
+            <img src="recursos/bicicleta.jpeg" alt="Bicicletas" class="img-thumbnail">
+            <span>Bicicletas (40 min)</span>
+            <span class="precio">$15,000</span>
+            <input type="number" class="form-control" min="0" id="bicicletas" value="0">
+        </div>
+
+        <!-- Merchandising -->
+        <h4 class="mt-4">Merchandising</h4>
+        <div class="entrada-item">
+            <img src="recursos/tazon.jpg" alt="Tazón" class="img-thumbnail">
+            <span>Tazón</span>
+            <span class="precio">$5,000</span>
+            <input type="number" class="form-control" min="0" id="tazones" value="0">
+        </div>
+        <div class="entrada-item">
+            <img src="recursos/polera.jpg" alt="Polera" class="img-thumbnail">
+            <span>Polera</span>
+            <span class="precio">$8,000</span>
+            <input type="number" class="form-control" min="0" id="poleras" value="0">
+        </div>
+        <div class="entrada-item">
+            <img src="recursos/gorra.jpeg" alt="Gorra" class="img-thumbnail">
+            <span>Gorra</span>
+            <span class="precio">$8,000</span>
+            <input type="number" class="form-control" min="0" id="gorras" value="0">
+        </div>
+        <div class="entrada-item">
+            <img src="recursos/poleron.jpg" alt="Polerón" class="img-thumbnail">
+            <span>Polerón</span>
+            <span class="precio">$12,000</span>
+            <input type="number" class="form-control" min="0" id="polerones" value="0">
+        </div>
+
+        <button type="button" class="btn btn-primary mt-4" onclick="mostrarResumen()">Ver Resumen</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="resumenModal" tabindex="-1" aria-labelledby="resumenModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resumenModalLabel">Resumen de Compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="detalleCompra"></div>
+                    <h4>Total: <span id="totalCompra">$0</span></h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary mt-4" onclick="generarResumenPDF()">Generar PDF con QR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="japp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
